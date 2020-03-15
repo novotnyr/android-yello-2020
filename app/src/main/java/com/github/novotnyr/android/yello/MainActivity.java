@@ -2,14 +2,12 @@ package com.github.novotnyr.android.yello;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.*;
+import androidx.appcompat.app.*;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.*;
 import butterknife.*;
 
@@ -48,9 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.fab)
     public void onAddNote(View view) {
-        Note note = new Note();
-        note.setDescription("some data");
-        noteViewModel.addNote(note);
+        EditText descriptionEditText = new EditText(this);
+        new AlertDialog.Builder(this)
+                .setView(descriptionEditText)
+                .setPositiveButton("Save", (dialog, which) -> onDialogOkClick(descriptionEditText))
+                .show();
     }
 
+    public void onDialogOkClick(EditText descriptionEditText) {
+        Note note = new Note();
+        note.setDescription(descriptionEditText.getText().toString());
+        noteViewModel.addNote(note);
+    }
 }
