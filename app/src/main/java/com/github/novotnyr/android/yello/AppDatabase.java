@@ -2,12 +2,16 @@ package com.github.novotnyr.android.yello;
 
 import android.content.Context;
 
+import java.util.concurrent.*;
+
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 @Database(entities = Note.class, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
+    public static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(5);
+
     public abstract NoteDao noteDao();
 
     private static volatile AppDatabase db;
