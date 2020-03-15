@@ -26,4 +26,9 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<Note>> getNotes() {
         return notes;
     }
+
+    public void addNote(Note note) {
+        db.getTransactionExecutor().execute(() -> noteDao.save(note));
+    }
+
 }
