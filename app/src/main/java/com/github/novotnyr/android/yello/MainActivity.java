@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
+    NoteListAdapter noteListAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         noteRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+
+        noteListAdapter = new NoteListAdapter();
+        noteRecyclerView.setAdapter(noteListAdapter);
     }
 
     @OnClick(R.id.fab)
