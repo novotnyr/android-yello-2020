@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.fab)
     public void onAddNote(View view) {
-        Snackbar.make(view, "Klik!", Snackbar.LENGTH_SHORT).show();
+        Note note = new Note();
+        note.setDescription("some data");
+        noteViewModel.addNote(note);
     }
 
 }
