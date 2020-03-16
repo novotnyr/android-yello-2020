@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.*;
 
 public class NoteViewHolder extends RecyclerView.ViewHolder {
-    @BindView(android.R.id.text1)
+    @BindView(R.id.text)
     TextView text;
 
     public NoteViewHolder(@NonNull View itemView) {
