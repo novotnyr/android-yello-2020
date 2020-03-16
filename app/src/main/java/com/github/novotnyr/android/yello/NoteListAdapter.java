@@ -14,7 +14,7 @@ public class NoteListAdapter extends ListAdapter<Note, NoteViewHolder> {
     @NonNull
     @Override
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        @LayoutRes int layout = android.R.layout.simple_list_item_1;
+        @LayoutRes int layout = R.layout.note;
         View itemView = LayoutInflater
                 .from(parent.getContext())
                 .inflate(layout, parent, false);
